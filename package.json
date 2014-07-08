@@ -1,0 +1,24 @@
+{
+  "name": "statsd-console-backend",
+  "version": "0.1.0",
+  "description": "StatsD backend for clean console output",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mozilla/statsd-console-backend"
+  },
+  "keywords": [
+    "statsd",
+    "backend",
+    "console"
+  ],
+  "author": "Eugen Sawin <esawin@mozilla.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mozilla/statsd-console-backend/issues"
+  },
+  "homepage": "https://github.com/mozilla/statsd-console-backend"
+}
