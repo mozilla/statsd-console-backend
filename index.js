@@ -26,10 +26,11 @@ ConsoleBackend.prototype.flush = function(timestamp, metrics) {
     report += sprintf('\n\n%40s  %15s', 'counters', 'num') + elements;
   }
 
+  // Timers.
   elements = '';
   for (var timer in metrics.timer_data) {
     if (metrics.timer_data.hasOwnProperty(timer)) {
-      elements += sprintf('\n%40s  %10d  %10.0f  %10.0f  %10.0f  %10.0f',
+      elements += sprintf('\n%40s  %14d  %14.0f  %14.0f  %14.0f  %14.0f',
         timer, 
         metrics.timer_data[timer].count,
         metrics.timer_data[timer].sum,
@@ -39,8 +40,19 @@ ConsoleBackend.prototype.flush = function(timestamp, metrics) {
     }
   }
   if (elements.length) {
-    report += sprintf('\n\n%40s  %10s  %10s  %10s  %10s  %10s',
+    report += sprintf('\n\n%40s  %14s  %14s  %14s  %14s  %14s',
         'timers', 'num', 'sum', 'lower', 'median', 'upper') + elements;
+  }
+
+  // Gauges.
+  elements = '';
+  for (var gauge in metrics.gauges) {
+    if (metrics.gauges.hasOwnProperty(gauge)) {
+      elements += sprintf('\n%40s  %14.0f', gauge, metrics.gauges[gauge]);
+    }
+  }
+  if (elements.length) {
+    report += sprintf('\n\n%40s  %14s', 'gauges', 'value') + elements;
   }
 
   if (report.length) {
