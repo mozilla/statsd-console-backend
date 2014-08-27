@@ -1,6 +1,6 @@
 {
   "name": "statsd-console-backend",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "StatsD backend for clean console output",
   "main": "index.js",
   "scripts": {
