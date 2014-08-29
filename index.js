@@ -19,18 +19,18 @@ ConsoleBackend.prototype.flush = function(timestamp, metrics) {
   var elements = '';
   for (var count in metrics.counters) {
     if (metrics.counters.hasOwnProperty(count) && metrics.counters[count]) {
-      elements += sprintf('\n%40s  %15d',  count, metrics.counters[count]);
+      elements += sprintf('\n%50s  %15d',  count, metrics.counters[count]);
     }
   }
   if (elements.length) {
-    report += sprintf('\n\n%40s  %15s', 'counters', 'num') + elements;
+    report += sprintf('\n\n%50s  %15s', 'counters', 'num') + elements;
   }
 
   // Timers.
   elements = '';
   for (var timer in metrics.timer_data) {
     if (metrics.timer_data.hasOwnProperty(timer)) {
-      elements += sprintf('\n%40s  %14d  %14.0f  %14.0f  %14.0f  %14.0f',
+      elements += sprintf('\n%50s  %14d  %14.0f  %14.0f  %14.0f  %14.0f',
         timer, 
         metrics.timer_data[timer].count,
         metrics.timer_data[timer].sum,
@@ -40,7 +40,7 @@ ConsoleBackend.prototype.flush = function(timestamp, metrics) {
     }
   }
   if (elements.length) {
-    report += sprintf('\n\n%40s  %14s  %14s  %14s  %14s  %14s',
+    report += sprintf('\n\n%50s  %14s  %14s  %14s  %14s  %14s',
         'timers', 'num', 'sum', 'lower', 'median', 'upper') + elements;
   }
 
@@ -48,11 +48,11 @@ ConsoleBackend.prototype.flush = function(timestamp, metrics) {
   elements = '';
   for (var gauge in metrics.gauges) {
     if (metrics.gauges.hasOwnProperty(gauge)) {
-      elements += sprintf('\n%40s  %14.0f', gauge, metrics.gauges[gauge]);
+      elements += sprintf('\n%50s  %14.0f', gauge, metrics.gauges[gauge]);
     }
   }
   if (elements.length) {
-    report += sprintf('\n\n%40s  %14s', 'gauges', 'value') + elements;
+    report += sprintf('\n\n%50s  %14s', 'gauges', 'value') + elements;
   }
 
   if (report.length) {
